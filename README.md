@@ -3,7 +3,7 @@
 
 Created for personal use. The script, will rename your files and remove any () and [].
 
-Currently supported extensions: mkv, mp4, mkv, flv, wmv, avi, mpg, mpeg, mp3, avi, dat
+Currently supported extensions: *mkv, mp4, mkv, flv, wmv, avi, mpg, mpeg, mp3, avi, dat*
 
 ## Example
 
