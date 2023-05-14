@@ -14,10 +14,13 @@ def remove_unnecessary_characters(file_name):
     return file_name
 
 def extract_episode_number(file_name):
-    # Find the first occurrence of a sequence of digits
-    episode_number = re.search(r'\b(\d+)\b', file_name)
+    # Find the last occurrence of a sequence of digits
+    episode_number = re.search(r'\b(\d+)\b', file_name[::-1])
     if episode_number:
-        return episode_number.group(1)
+        episode_number = episode_number.group(1)
+        # Reverse the episode number back to the correct order
+        episode_number = episode_number[::-1]
+        return episode_number
     return None
 
 def correct_file_name(file_path):
