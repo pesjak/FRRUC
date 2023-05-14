@@ -14,8 +14,8 @@ def remove_unnecessary_characters(file_name):
     return file_name
 
 def extract_episode_number(file_name):
-    # Find the last occurrence of a sequence of digits
-    episode_number = re.search(r'\b(\d+)\b', file_name[::-1])
+    # Find the last occurrence of a sequence of digits followed by optional whitespace
+    episode_number = re.search(r'(\d+)\s*$', file_name[::-1])
     if episode_number:
         episode_number = episode_number.group(1)
         # Reverse the episode number back to the correct order
@@ -35,7 +35,7 @@ def correct_file_name(file_path):
         
         if episode_number:
             # Remove the episode number from the file name
-            new_file_name = re.sub(r'\b\d+\b', '', new_file_name).strip()
+            new_file_name = re.sub(r'\d+\s*$', '', new_file_name).strip()
             
             # Construct the new file name with the episode number and extension
             new_file_name = f"{new_file_name} - {episode_number}{file_extension}"
